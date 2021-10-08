@@ -37,7 +37,8 @@ module.exports = [
     listingType: LISTING_TYPES.FULL_TIME,
     role: ROLES.FRONTEND,
     level: LEVELS.SENIOR,
-    languages: [LANGUAGES.HTML, LANGUAGES.CSS, LANGUAGES.JS]
+    languages: [LANGUAGES.HTML, LANGUAGES.CSS, LANGUAGES.JS],
+    id:1
   },
   {
     isFeatured: true,
@@ -48,8 +49,10 @@ module.exports = [
     listingType: LISTING_TYPES.PART_TIME,
     role: ROLES.FULL_STACK,
     level: LEVELS.MID_WEIGHT,
-    languages: [LANGUAGES.PYTHON, languages.JS],
-    tools: [TOOLS.REACT]
+    languages: [LANGUAGES.PYTHON, LANGUAGES.JS],
+    tools: [TOOLS.REACT],
+    id:2
+
   },
   {
     isFeatured: false,
@@ -61,7 +64,9 @@ module.exports = [
     role: ROLES.FRONTEND,
     level: LEVELS.JUNIOR,
     languages: [LANGUAGES.JS],
-    tools: [TOOLS.REACT, TOOLS.SASS]
+    tools: [TOOLS.REACT, TOOLS.SASS],
+    id:3
+
   },
   {
     isFeatured: false,
@@ -73,5 +78,6 @@ module.exports = [
     role: ROLES.FRONTEND,
     level: LEVELS.JUNIOR,
     languages: [LANGUAGES.JS, LANGUAGES.CSS, LANGUAGES.HTML],
+    id:4
   },
 ];
