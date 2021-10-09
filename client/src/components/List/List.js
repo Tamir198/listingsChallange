@@ -5,7 +5,7 @@ const ListComponenet = (props) =>{
     <div>  
       {/* TODO init list items with job object (to creat it dymanic) */}
       {props.data.map(job => <div>{job.languages}</div>)}
-      <ListItem job={job}/>
+      <ListItem/>
     </div>
     )
 
