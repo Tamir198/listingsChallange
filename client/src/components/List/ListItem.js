@@ -3,7 +3,7 @@ import './ListItem.css';
 const ListItem = (props) => {
   return (
     <div className="list-item-container">
-      <image className="company-image" />
+      <img className="company-image" />
       <div className="left-item">
 
         <div className="top-left-tags">
@@ -25,7 +25,7 @@ const ListItem = (props) => {
           <h4 className="job-title">Senior Full stack developer</h4>
         </div>
 
-        <div class="bottom-tags">
+        <div className="bottom-tags">
           <div className="time-registered">1 d ago</div>
           <div className="listing-type"> Full Time</div>
           <div className="listing-location">USA only</div>
@@ -33,7 +33,7 @@ const ListItem = (props) => {
       </div>
 
 
-      <div class="right-item">
+      <div className="right-item">
         <div className="rolls-tags">
           <h6 className="role">Fullstack</h6>
           <h6 className="level">midWeight</h6>

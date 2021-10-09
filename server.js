@@ -2,7 +2,10 @@ const express = require('express');
 const { port } = require('./config.json');
 const data = require('./DummyData');
 
+var cors = require('cors')
 const app = express();
+
+app.use(cors());
 var bodyParser = require('body-parser')
 const jsonParser = bodyParser.json();
 
