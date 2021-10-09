@@ -1,0 +1,47 @@
+
+:root{
+  --main-bg-color: brown;
+}
+
+.list-item-container {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  width: 900px;
+  height: 200px;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.top-tags, .bottom-tags, .rolls-tags {
+  display: flex;
+  flex-direction: row;
+  padding: 3px;
+  justify-content: space-between;
+}
+
+.bottom-tags {
+  color: grey;
+
+}
+
+.container, .left-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-item {
+  width: 400px;
+}
+
+.company-image{
+  width: 15%;
+  height: 100%;
+}
+
+h6 {
+  border: 1px solid hsl(180, 29%, 50%);
+  background-color: hsl(180, 29%, 50%);
+  color:hsl(180, 52%, 29%);
+  padding: 5px;
+}
