@@ -6,9 +6,14 @@ var cors = require('cors')
 const app = express();
 
 app.use(cors());
+
 var bodyParser = require('body-parser')
 const jsonParser = bodyParser.json();
 
+app.post('/login/admin', jsonParser, (req, res) => {
+  console.log(req.body);
+  res.json({ isAdmin: req.body.name == "admin" && req.body.password == "123456" })
+});
 
 app.get('/data', (req, res) => {
   res.json(data);
