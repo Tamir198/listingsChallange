@@ -11,13 +11,17 @@ const ListComponenet = (props) => {
       console.log(jobList)
     }, []);
 
-  
+    const removeItemFromList = (item) =>{
+      setJobList(jobList.splice(jobList.indexOf(item),1));
+      props.deleteItem(item)
+    }
+
   return (
     <div>
       {
         props.data.map(
           job => <ListItem
-            deleteItem={props.deleteItem}
+            deleteItem={removeItemFromList}
             key={job.id}
             jobData={job}>{job.languages}
           </ListItem>)
