@@ -39,6 +39,7 @@ function App() {
   };*/
 
   const [jobs, setJobs] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   //Access jobs with jobs.data
   const getAllData = async () => {
