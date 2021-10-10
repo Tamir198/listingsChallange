@@ -18,7 +18,12 @@ const ExampleItem = (props) => {
     role: "",
     level: "",
     languages: "",
-    id: Math.random()
+    id: new Date().getTime()
+  }
+
+  const addItemToList = () =>{
+    props.updateData();
+    props.addJob(newJob);
   }
 
 
@@ -70,8 +75,7 @@ const ExampleItem = (props) => {
       </input>
 
 
-    <button onClick={()=>console.log(newJob)}></button>
-
+    <button onClick={()=> addItemToList()}>Add Item</button>
     </div>
   )
 }

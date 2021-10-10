@@ -7,33 +7,28 @@ import List from '../List/List';
 
 function App() {
 
-  /*
-    const addData = async () => {
-      const dataToAdd =  {
-        isFeatured: true,
-        listingTitle: "Senior Frontend Developer",
-        listedCompany: "Photosnap",
-        listingLocation: "USA only",
-        timeRegistered: "02/10/2021",
-        listingType: "listing",
-        role: "Front",
-        level: "Junior",
-        languages: "js",
-        id:"Tamir"
-      }
   
+    const addJob = async (dataToAdd) => {
+      console.log("Add job called");
       try {
         await axios.post(`http://localhost:8080/data/`, dataToAdd  )
         .then( data => data)
-        .then(res =>  console.log(res.data));
+        .then(res =>  {
+          jobs.push(res.data);
+          //TODO - show the new element without reload the page
+          window.location.reload();
+        });
         
       } catch (err) { console.log(err); }
-    };*/
+    };
 
   const [jobs, setJobs] = useState([]);
 
   //Access jobs with jobs.data
-  const getAllData = async () => {
+  const getAllData = async (param) => {
+    if(param){
+      console.log(param);
+    }else
     try {
       await axios.get('http://localhost:8080/data')
         .then(data => data)
@@ -54,8 +49,6 @@ function App() {
     listOfWordsFronInput.forEach(word => {
 
       jobs.forEach(job => {
-        console.log(job);
-
 
         if (arr.includes(job.role)) {
           newJobsList.push(job);
@@ -95,11 +88,10 @@ function App() {
 
   return (
     <div className="App">
-      <header />
+      <header/>
       <div className="container">
         <FilterBox filterList={filterList}></FilterBox>
-        <button>Add Item</button>
-        <ExampleItem></ExampleItem>
+        <ExampleItem updateData={getAllData} addJob={addJob}></ExampleItem>
         <List deleteItem={deleteItem} data={jobs}></List>
       </div>
     </div>
