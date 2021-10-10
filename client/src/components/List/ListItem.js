@@ -17,7 +17,6 @@ const ListItem = (props) => {
     return diffDays;
   }
 
-
   const imagePath = `../../assets/${props.jobData.listedCompany.toLowerCase()}.svg`;
   // console.log(imagePath)
 
@@ -25,9 +24,9 @@ const ListItem = (props) => {
     backgroundImage: "url(" + { imagePath } + ")"
   };
 
-
   return (
     <div className="list-item-container">
+        <button onClick={() => props.deleteItem(props.jobData)} id={props.jobData} className="delete-job">x</button>
       {/* todo change the image according to the company */}
       <img className="company-image"
       // style={{backgroundImage: "url(" + imagePath + ")"}
