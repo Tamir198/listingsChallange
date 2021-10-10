@@ -23,8 +23,7 @@ const ListComponenet = (props) => {
           job => <ListItem
             deleteItem={removeItemFromList}
             key={job.id}
-            jobData={job}>{job.languages}
-          </ListItem>)
+            jobData={job}>{job.languages}</ListItem>)
       }
     </div>
   )
