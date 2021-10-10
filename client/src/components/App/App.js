@@ -86,12 +86,27 @@ function App() {
       setJobs(newJobsList);
     }
 
+    const deleteItem = async (data) =>{
+      console.log("delete");
+      console.log(data);
+      try {
+        //Replace 2 with correct ID
+        await axios.delete(`http://localhost:8080/data/${data.id}`)
+        .then(data => data)
+        .then(res =>  console.log(res.data));
+        
+      } catch (err) { console.log(err); }
+      
+      jobs.splice(jobs.indexOf(data),1);
+      setJobs(jobs);
+    }
+
 return (
   <div className="App">
     <header />
     <div className="container">
       <FilterBox filterList={filterList}></FilterBox>
-      <List data={jobs}></List>
+      <List deleteItem={deleteItem} data={jobs}></List>
     </div>
   </div>
 );
