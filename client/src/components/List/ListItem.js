@@ -1,9 +1,9 @@
 import './ListItem.css';
 import Background from '../../assets/photosnap.svg';
 const ListItem = (props) => {
-  
 
-  const jobTimeRegisteredDaysPassed = () => {
+
+  const DaysPassedSinceJobPosted = () => {
     let date = new Date;
 
     let date2 = props.jobData.timeRegistered;
@@ -18,9 +18,8 @@ const ListItem = (props) => {
   }
 
 
-
   const imagePath = `../../assets/${props.jobData.listedCompany.toLowerCase()}.svg`;
-  console.log(imagePath)
+  // console.log(imagePath)
 
   var sectionStyle = {
     backgroundImage: "url(" + { imagePath } + ")"
@@ -30,10 +29,10 @@ const ListItem = (props) => {
   return (
     <div className="list-item-container">
       {/* todo change the image according to the company */}
-      <img className="company-image" 
-      // style={{backgroundImage: "url(" + imagePath + ")"}}
+      <img className="company-image"
+      // style={{backgroundImage: "url(" + imagePath + ")"}
+      />
       
-       />
       <div className="left-item">
 
         <div className="top-left-tags">
@@ -48,7 +47,7 @@ const ListItem = (props) => {
 
           {/* todo check is this is reeally new (7 days ago max) */}
           <div className="new-job-tag">
-            <h5>{jobTimeRegisteredDaysPassed() > 7 ? `` : `New`}</h5>
+            <h5>{DaysPassedSinceJobPosted() > 7 ? `` : `New`}</h5>
           </div>
 
         </div>
@@ -58,7 +57,7 @@ const ListItem = (props) => {
         </div>
         <div className="bottom-tags">
           {/* todo calculate how long ago this was posted */}
-          <div className="time-registered">{jobTimeRegisteredDaysPassed()} Days Ago</div>
+          <div className="time-registered">{DaysPassedSinceJobPosted()} Days Ago</div>
           <div className="listing-type">{props.jobData.listingType}</div>
           <div className="listing-location">{props.jobData.listingLocation}</div>
         </div>

@@ -6,7 +6,7 @@ import List from '../List/List';
 
 function App() {
 
-  
+
   /*
   const deleteData = async () => {
     try {
@@ -40,33 +40,55 @@ function App() {
 
   const [jobs, setJobs] = useState([]);
 
-   //Access jobs with jobs.data
-   const getAllData = async () => {
+  //Access jobs with jobs.data
+  const getAllData = async () => {
     try {
       await axios.get('http://localhost:8080/data')
-      .then(data => data)
-      .then(res => {
-        setJobs(res.data);
-      });
-      
+        .then(data => data)
+        .then(res => {
+          setJobs(res.data);
+        });
     } catch (err) { console.log(err); }
   };
-
-
 
   useEffect(() => {
     getAllData();
   }, []);
 
-  return (
-    <div className="App">
-      <header/>
-      <div className="container">
-        <FilterBox></FilterBox>
-        <List data={jobs}></List>
-      </div>
+  const filterList = (arr) => {
+    const newList = [];
+    
+    jobs.forEach(job => {
+      console.log(job);
+
+      if(arr.includes(job.role)){
+        newList.push(job);
+      }
+
+      if(arr.includes(job.level)){
+        newList.push(job);
+      }
+
+      job.languages.forEach(lang => {
+        if(arr.includes(lang)){
+          newList.push(job);
+          console.log("gooddd")
+        }
+        return;
+      });
+  });
+  setJobs(newList);
+}
+
+return (
+  <div className="App">
+    <header />
+    <div className="container">
+      <FilterBox filterList={filterList}></FilterBox>
+      <List data={jobs}></List>
     </div>
-  );
+  </div>
+);
 }
 
 export default App;
