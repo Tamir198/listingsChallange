@@ -12,6 +12,8 @@ body{
 
 .list-item-container {
   background: white;
+  margin: 16px;
+  padding: 16px;
   display: flex;
   flex-direction: row;
   box-shadow: hsl(180, 29%, 50%);
@@ -29,6 +31,10 @@ body{
   padding: 3px;
   justify-content: space-between;
 }
+
+.top-left-tags{
+  justify-content: flex-start;
+}
 .rolls-tags *{
   color: white;
 
@@ -43,16 +49,21 @@ body{
   width: 400px;
 }
 
+
+
 .company-image{
-  background-image: url("../../assets/photosnap.svg");
+  background-image: url("../../assets/account.svg");
   background-repeat: no-repeat;
   background-size: 100%;
   width: 15%;
-  margin: 6px;
   height: 100%;
 }
 
-h6, h5{
+.bottom-tags *, h6, h5{
+  width: 80px;
+}
+
+h5, h6{
   color:var(--vary-dark-cyan);
   padding: 5px;
   border-radius: 6px;
@@ -60,7 +71,6 @@ h6, h5{
 
 h5, h4{
 color: hsl(180, 29%, 50%);
-
 }
 
 h6{
