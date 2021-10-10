@@ -56,29 +56,35 @@ function App() {
   }, []);
 
   const filterList = (arr) => {
-    const newList = [];
-    
-    jobs.forEach(job => {
-      console.log(job);
+    const newJobsList = [];
+    const listOfWordsFronInput = arr.match(/(?:(?<=\bstack)\w+|\b(?!stack)\w+)(?=[, ]|$)/g);
 
-      if(arr.includes(job.role)){
-        newList.push(job);
-      }
+    listOfWordsFronInput.forEach(word => {
 
-      if(arr.includes(job.level)){
-        newList.push(job);
-      }
-
-      job.languages.forEach(lang => {
-        if(arr.includes(lang)){
-          newList.push(job);
-          console.log("gooddd")
+      jobs.forEach(job => {
+        console.log(job);
+        
+        
+        if(arr.includes(job.role)){
+          newJobsList.push(job);
         }
-        return;
+        
+        if(arr.includes(job.level)){
+          newJobsList.push(job);
+        }
+        
+        job.languages.forEach(lang => {
+          if(arr.includes(lang)){
+            newJobsList.push(job);
+            console.log("gooddd")
+          }
+          return;
+        });
       });
-  });
-  setJobs(newList);
-}
+
+    });
+      setJobs(newJobsList);
+    }
 
 return (
   <div className="App">
