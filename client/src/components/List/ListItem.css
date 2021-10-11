@@ -6,6 +6,10 @@
   --very-dart-cyan: hsl(180, 14%, 20%);
 }
 
+.hide{
+  color: aqua;
+}
+
 body{
   font-size: 16px;
 }

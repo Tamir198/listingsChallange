@@ -93,7 +93,7 @@ function App() {
       <div className="container">
         <FilterBox filterList={filterList}></FilterBox>
         <AdminLogin/>
-        <ExampleItem updateData={getAllData} addJob={addJob}></ExampleItem>
+        <ExampleItem  updateData={getAllData} addJob={addJob}></ExampleItem>
         <List deleteItem={deleteItem} data={jobs}></List>
       </div>
     </div>
