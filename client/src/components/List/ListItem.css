@@ -11,7 +11,7 @@
 }
 
 body{
-  font-size: 16px;
+  font-size: 24px;
 }
 
 .delete-job{
@@ -26,12 +26,16 @@ body{
   display: flex;
   flex-direction: row;
   box-shadow: hsl(180, 29%, 50%);
-  border: 1px solid black;
   border-radius: 4px;
-  width: 900px;
-  height: 150px;
+  width: 1300px;
+  height: 250px;
+  border-radius: 16px;
   text-align: center;
   justify-content: space-between;
+}
+
+.list-item-container:hover{
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 .top-left-tags, .bottom-tags, .rolls-tags {
@@ -46,6 +50,7 @@ body{
 }
 .rolls-tags *{
   color: white;
+  justify-content: space-around;
 
 }
 
@@ -55,11 +60,10 @@ body{
 
 
 .right-item {
-  width: 400px;
+  width: 700px;
 }
 
 .company-image{
-  background-image: url("../../assets/account.svg");
   background-repeat: no-repeat;
   background-size: 100%;
   width: 15%;

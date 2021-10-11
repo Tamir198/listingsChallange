@@ -1,6 +1,67 @@
 import './ListItem.css';
-import Background from '../../assets/photosnap.svg';
+import noImage from './noImagePath';
+import account from "../../assets/account.svg";
+import headerdesktop from "../../assets/bg-header-desktop.svg";
+import headermobile from "../../assets/bg-header-mobile.svg";
+import eyecamco from "../../assets/eyecam-co.svg";
+import faceit from "../../assets/faceit.svg";
+import insure from "../../assets/insure.svg";
+import loopstudios from "../../assets/loop-studios.svg";
+import manage from "../../assets/manage.svg";
+import myhome from "../../assets/myhome.svg";
+import photosnap from "../../assets/photosnap.svg";
+import shortly from "../../assets/shortly.svg";
+import theairfiltercompany from "../../assets/the-air-filter-company.svg";
+
 const ListItem = (props) => {
+
+  const getCompanyImage = () => {
+    const companyName = props.jobData.listedCompany;
+    let backgroundImg;
+
+    switch (companyName.toLowerCase()) {
+      case 'photosnap':
+        backgroundImg = photosnap;
+        break;
+      case 'myhome':
+        backgroundImg = myhome;
+        break;
+      case 'manage':
+        backgroundImg = manage;
+        break;
+      case 'shortly':
+        backgroundImg = shortly;
+        break;
+      case 'theairfiltercompany':
+        backgroundImg = theairfiltercompany;
+        break;
+      case 'loopstudios':
+        backgroundImg = loopstudios;
+        break;
+      case 'insure':
+        backgroundImg = insure;
+        break;
+      case 'faceit':
+        backgroundImg = faceit;
+        break;
+      case 'eyecamco':
+        backgroundImg = eyecamco;
+        break;
+      case 'headermobile':
+        backgroundImg = headermobile;
+        break;
+      case 'headerdesktop':
+        backgroundImg = headerdesktop;
+        break;
+      case 'account':
+        backgroundImg = account;
+        break;
+        default:
+        backgroundImg = noImage;
+    }
+
+    return backgroundImg;
+  }
 
 
   const DaysPassedSinceJobPosted = () => {
@@ -17,21 +78,13 @@ const ListItem = (props) => {
     return diffDays;
   }
 
-  const imagePath = `../../assets/${props.jobData.listedCompany.toLowerCase()}.svg`;
-  // console.log(imagePath)
-
-  var sectionStyle = {
-    backgroundImage: "url(" + { imagePath } + ")"
-  };
 
   return (
     <div className="list-item-container">
-        <button className="delete-job hide" onClick={() => props.deleteItem(props.jobData)} id={props.jobData} >x</button>
-      {/* todo change the image according to the company */}
-      <img className="company-image"
-      // style={{backgroundImage: "url(" + imagePath + ")"}
+      <button className="delete-job hide" onClick={() => props.deleteItem(props.jobData)} id={props.jobData} >x</button>
+      <img className="company-image" src={getCompanyImage()}
       />
-      
+
       <div className="left-item">
 
         <div className="top-left-tags">
@@ -44,7 +97,6 @@ const ListItem = (props) => {
             <h5>{props.jobData.isFeatured ? "Featured" : null}</h5>
           </div>
 
-          {/* todo check is this is reeally new (7 days ago max) */}
           <div className="new-job-tag">
             <h5>{DaysPassedSinceJobPosted() > 7 ? `` : `New`}</h5>
           </div>
@@ -66,8 +118,7 @@ const ListItem = (props) => {
         <div className="rolls-tags">
           <h6 className="role">{props.jobData.role}</h6>
           <h6 className="level">{props.jobData.level}</h6>
-          {/* todo seperate different languages to different tags */}
-          <h6 id="languages-tags">{props.jobData.languages}</h6>
+          {[...props.jobData.languages].map(language => <h6>{language}</h6>)}
         </div>
       </div>
     </div>
