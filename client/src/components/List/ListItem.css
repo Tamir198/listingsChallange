@@ -59,7 +59,6 @@ body{
 }
 
 .company-image{
-  background-image: url("../../assets/account.svg");
   background-repeat: no-repeat;
   background-size: 100%;
   width: 15%;
