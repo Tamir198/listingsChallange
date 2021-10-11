@@ -118,8 +118,7 @@ const ListItem = (props) => {
         <div className="rolls-tags">
           <h6 className="role">{props.jobData.role}</h6>
           <h6 className="level">{props.jobData.level}</h6>
-          {/* todo seperate different languages to different tags */}
-          <h6 id="languages-tags">{props.jobData.languages}</h6>
+          {[...props.jobData.languages].map(language => <h6>{language}</h6>)}
         </div>
       </div>
     </div>
