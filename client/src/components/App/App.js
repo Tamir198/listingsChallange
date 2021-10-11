@@ -55,20 +55,22 @@ function App() {
           newJobsList.push(job);
         }
 
-        if (arr.includes(job.level)) {
+        else if (arr.includes(job.level)) {
           newJobsList.push(job);
         }
 
-        job.languages.forEach(lang => {
-          if (arr.includes(lang)) {
-            newJobsList.push(job);
-            console.log("gooddd")
-          }
-          return;
-        });
+        else {
+
+          [job.languages].forEach(lang => {
+            if (arr.includes(lang)) {
+              newJobsList.push(job);
+            }
+          });
+        }
       });
 
     });
+
     setJobs(newJobsList);
   }
 
@@ -89,11 +91,11 @@ function App() {
 
   return (
     <div className="App">
-      <header/>
+      <header />
       <div className="container">
         <FilterBox filterList={filterList}></FilterBox>
-        <AdminLogin/>
-        <ExampleItem  updateData={getAllData} addJob={addJob}></ExampleItem>
+        <AdminLogin />
+        <ExampleItem updateData={getAllData} addJob={addJob}></ExampleItem>
         <List deleteItem={deleteItem} data={jobs}></List>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import showAdminUI from "../Login/showAdminUI";
 import './ExampleItem.css'
 
 const ExampleItem = (props) => {
@@ -75,7 +76,7 @@ const ExampleItem = (props) => {
       </input>
 
 
-    <button onClick={()=> addItemToList()}>Add Item</button>
+    <button onClick={addItemToList}>Add Item</button>
     </div>
   )
 }
