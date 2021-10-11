@@ -28,7 +28,7 @@ const ExampleItem = (props) => {
 
 
   return (
-    <div className="inputs-container">
+    <div className="inputs-container hide">
 
       <input
         onInput={(e) => newJob.isFeatured = (e.target.value == true)}

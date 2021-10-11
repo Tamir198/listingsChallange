@@ -8,3 +8,7 @@
   margin-bottom : 6px;
   height: 50px;
 }
+
+.hide{
+  visibility: gone;
+}

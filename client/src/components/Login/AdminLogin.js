@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './AdminLogin.css'
 import checkAdminCredentials from './CheckAdminCredentials';
+import showAdminUI from './showAdminUI';
 
 const AdminLogin = (props) => {
   const [name, setName] = useState();
@@ -10,13 +11,13 @@ const AdminLogin = (props) => {
     const credentials = await checkAdminCredentials(name, password);
 
     if (credentials) {
-      const loginContainer = document.querySelector('.login-container');
-      loginContainer.classList.add('hide');
+      document.querySelector('.login-container').classList.add('hide');
+      showAdminUI();
+     
     } else {
       alert("Wrong credentials");
     }
   }
-
 
   return (
     <div className="login-container">
