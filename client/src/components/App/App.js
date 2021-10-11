@@ -60,8 +60,7 @@ function App() {
         }
 
         else {
-
-          [job.languages].forEach(lang => {
+          [...job.languages].forEach(lang => {
             if (arr.includes(lang)) {
               newJobsList.push(job);
             }
