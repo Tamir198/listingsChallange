@@ -55,17 +55,20 @@ function App() {
           newJobsList.push(job);
         }
 
-        if (arr.includes(job.level)) {
+        else if (arr.includes(job.level)) {
           newJobsList.push(job);
         }
 
-        job.languages.forEach(lang => {
-          if (arr.includes(lang)) {
-            newJobsList.push(job);
-            console.log("gooddd")
-          }
-          return;
-        });
+        else{
+
+          [job.languages].forEach(lang => {
+            if (arr.includes(lang)) {
+              newJobsList.push(job);
+              console.log("gooddd")
+              return;
+            }
+          });
+        }
       });
 
     });
