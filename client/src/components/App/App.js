@@ -4,38 +4,39 @@ import './App.css';
 import FilterBox from '../Filter/FilterBox';
 import ExampleItem from '../ExampleItem/ExampleItem';
 import List from '../List/List';
+import AdminLogin from '../Login/AdminLogin';
 
 function App() {
 
-  
-    const addJob = async (dataToAdd) => {
-      console.log("Add job called");
-      try {
-        await axios.post(`http://localhost:8080/data/`, dataToAdd  )
-        .then( data => data)
-        .then(res =>  {
+
+  const addJob = async (dataToAdd) => {
+    console.log("Add job called");
+    try {
+      await axios.post(`http://localhost:8080/data/`, dataToAdd)
+        .then(data => data)
+        .then(res => {
           jobs.push(res.data);
           //TODO - show the new element without reload the page
-          window.location.reload();
+          // window.location.reload();
         });
-        
-      } catch (err) { console.log(err); }
-    };
+
+    } catch (err) { console.log(err); }
+  };
 
   const [jobs, setJobs] = useState([]);
 
   //Access jobs with jobs.data
   const getAllData = async (param) => {
-    if(param){
+    if (param) {
       console.log(param);
-    }else
-    try {
-      await axios.get('http://localhost:8080/data')
-        .then(data => data)
-        .then(res => {
-          setJobs(res.data);
-        });
-    } catch (err) { console.log(err); }
+    } else
+      try {
+        await axios.get('http://localhost:8080/data')
+          .then(data => data)
+          .then(res => {
+            setJobs(res.data);
+          });
+      } catch (err) { console.log(err); }
   };
 
   useEffect(() => {
@@ -91,6 +92,7 @@ function App() {
       <header/>
       <div className="container">
         <FilterBox filterList={filterList}></FilterBox>
+        <AdminLogin/>
         <ExampleItem updateData={getAllData} addJob={addJob}></ExampleItem>
         <List deleteItem={deleteItem} data={jobs}></List>
       </div>

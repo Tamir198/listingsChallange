@@ -1,0 +1,13 @@
+.login-container *{
+  width: 150px;
+}
+
+.login-container{
+display: flex;
+flex-direction: column;
+}
+
+.hide{
+  visibility: gone;
+}
+
