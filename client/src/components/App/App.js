@@ -8,7 +8,6 @@ import AdminLogin from '../Login/AdminLogin';
 
 function App() {
 
-
   const addJob = async (dataToAdd) => {
     console.log("Add job called");
     try {
@@ -16,8 +15,6 @@ function App() {
         .then(data => data)
         .then(res => {
           jobs.push(res.data);
-          //TODO - show the new element without reload the page
-          // window.location.reload();
         });
 
     } catch (err) { console.log(err); }
@@ -25,7 +22,6 @@ function App() {
 
   const [jobs, setJobs] = useState([]);
 
-  //Access jobs with jobs.data
   const getAllData = async (param) => {
     if (param) {
       console.log(param);
@@ -78,7 +74,6 @@ function App() {
     console.log("delete");
     console.log(data);
     try {
-      //Replace 2 with correct ID
       await axios.delete(`http://localhost:8080/data/${data.id}`)
         .then(data => data)
         .then(res => console.log(res.data));
