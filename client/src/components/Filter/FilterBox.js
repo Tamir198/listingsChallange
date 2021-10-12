@@ -7,11 +7,17 @@ const FilterBox = (props) => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       props.filterList(input);
+      // 32 = space
+    }else if(e.keyCode == 32){
+      //Space pressed
+    
     }
+
+
   }
   return (
     <div className="filterBox" action="">
-      <input
+      <input id="input"
         onInput={(e) => setInput(e.target.value)}
         onKeyDown={(e) => handleKeyDown(e)}
         type="text"

@@ -23,10 +23,9 @@ const ExampleItem = (props) => {
   }
 
   const addItemToList = () =>{
-    props.updateData();
     props.addJob(newJob);
+    props.updateData();
   }
-
 
   return (
     <div className="inputs-container hide">
@@ -76,7 +75,7 @@ const ExampleItem = (props) => {
       </input>
 
 
-    <button onClick={addItemToList}>Add Item</button>
+    <button onClick={()=>addItemToList()}>Add Item</button>
     </div>
   )
 }
