@@ -80,7 +80,10 @@ const ListItem = (props) => {
 
 
   return (
-    <div className="list-item-container">
+    <div className={props.jobData.isFeatured
+      ? 'list-item-container featured' :
+     'list-item-container'}>
+
       <button className="delete-job hide" onClick={() => props.deleteItem(props.jobData)} id={props.jobData} >x</button>
       <img className="company-image" src={getCompanyImage()}
       />
